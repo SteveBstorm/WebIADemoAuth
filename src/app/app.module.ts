@@ -10,6 +10,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UserlistComponent } from './components/userlist/userlist.component';
 import { TieInterceptor } from './shared/tie.interceptor';
+import { HomeComponent } from './components/home/home.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { TieInterceptor } from './shared/tie.interceptor';
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    UserlistComponent
+    UserlistComponent,
+    HomeComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

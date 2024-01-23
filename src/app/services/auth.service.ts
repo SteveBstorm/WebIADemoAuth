@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { User } from '../models/user.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,11 @@ export class AuthService {
   sujetAObserver : Subject<boolean> = new Subject<boolean>()
 
   private url :string = "https://localhost:7152/api/"
+
+
   constructor(
-    private client : HttpClient
+    private client : HttpClient,
+    private router : Router
   ) { }
 
   sendIsConnectedValue() {
@@ -40,7 +44,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem("token")
     this.sujetAObserver.next(this.isConnected)
-
+    this.router.navigate(["home"])
   }
 
   getAllUser() : Observable<User[]> {
